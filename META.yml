@@ -19,4 +19,5 @@ no_index:
     - inc
 requires:
   HTML::FormHandler: 0
-version: 0.01
+  JSON: 0
+version: 0.02
