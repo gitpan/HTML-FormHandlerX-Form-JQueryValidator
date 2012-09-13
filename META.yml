@@ -1,7 +1,7 @@
 ---
 abstract: unknown
 author:
-  - 'Aaron Trevena <teejay@(none)>'
+  - 'Aaron Trevena <teejay@cpan.org>'
 build_requires:
   ExtUtils::MakeMaker: 0
 configure_requires:
@@ -20,4 +20,5 @@ no_index:
 requires:
   HTML::FormHandler: 0
   JSON: 0
-version: 0.02
+  URI: 0
+version: 0.03
