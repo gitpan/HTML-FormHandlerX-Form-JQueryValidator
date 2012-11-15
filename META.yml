@@ -21,4 +21,4 @@ requires:
   HTML::FormHandler: 0
   JSON: 0
   URI: 0
-version: 0.03
+version: 0.04

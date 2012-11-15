@@ -8,11 +8,11 @@ HTML::FormHandlerX::Form::JQueryValidator - Perl trait for HTML::FormHandler and
 
 =head1 VERSION
 
-0.03
+0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 
 use JSON;
@@ -35,7 +35,7 @@ use Moose::Role;
     <input type="hidden" id="validation_json" value="[% form.as_escaped_json %]">
 
     <script>
-    var validationJSON = JSON.parse(unescape($("#validation_json").val() ) );
+    var validationJSON = JSON.parse(decodeURIComponent($("#validation_json").val() ) );
 
     $("#story_form").validate({
                 rules: validationJSON.rules,
@@ -77,7 +77,7 @@ sub to_jquery_validation_profile {
         my $field_rule = { };
         if ($field->required) {
             $field_rule->{required} = 1;
-            $js_profile->{messages}{$field->id} = $field->name . ' is required';
+            $js_profile->{messages}{$field->id} = $self->_localize($field->get_message('required'), $field->loc_label);
         }
         if (lc($field->type) eq 'email') {
             $field_rule->{email} = 1;
